@@ -10,3 +10,4 @@ const currentOrderSlice = createSlice({
 })
 
 export default currentOrderSlice.reducer
+export const {chooseOrder} = currentOrderSlice.actions
