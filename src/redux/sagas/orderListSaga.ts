@@ -4,23 +4,22 @@ import { fetchingListError, fetchingListSuccess } from "../reducers/orderListSli
 import { fetchToDataBase } from "./sagaHelpers";
 
 
-function* fetchOrderListWorker(): SagaIterator {
-  console.log('sss');
-  try {
-    const data = yield call(fetchToDataBase)
-    const orderList = yield call(() => new Promise(res => {
-      console.log(data);
-      return res(JSON.parse(data))
-    }))
+function* orderListWorker(): SagaIterator {
 
-    yield put(fetchingListSuccess(orderList.orders))
+    try {
+        const data = yield call(fetchToDataBase)
+        const orderList = yield call(() => new Promise(res => res(JSON.parse(data))))
 
-  }
-  catch(error: any) {
-    yield put(fetchingListError(error.message))
-  }
+        yield put(fetchingListSuccess(orderList.orders))
+
+    }
+    catch(error: any) {
+        yield put(fetchingListError(error.message))
+
+    }
+
 }
 
-export function* FetchOrderListWatcher() {
-  yield takeEvery('orderList/fetchingList', fetchOrderListWorker)
+export function* orderListWatcher() {
+    yield takeEvery('orderList/fetchingList', orderListWorker)
 }

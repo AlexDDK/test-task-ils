@@ -1,28 +1,27 @@
 import { LatLngBoundsExpression, LatLngExpression } from 'leaflet'
-import { useState } from 'react'
-import { useAppDispatch } from '../../redux/hooks/hooks'
-import { fetchingList, fetchingListError, fetchingListSuccess } from '../../redux/reducers/orderListSlice'
+import { useEffect, useState } from 'react'
+import { useAppSelector } from '../../redux/hooks/hooks'
 import Map from '../map/Map'
 
 export default function MapCont() {
 
-  const dispatch = useAppDispatch()
-
+  const order = useAppSelector((state) => state.currentOrder.current)
+  
   const initialBounds: LatLngBoundsExpression = []
   const [bounds, setBounds] = useState(initialBounds)
 
-  const initialCenter: LatLngExpression = [55.757233, 37.618943]
+  const initialCenter: LatLngExpression = [59.933005, 30.308888]
   const [center, setCenter] = useState(initialCenter)
 
-  const clickHandler = () => {
-    dispatch(fetchingList())
-    setBounds([ [59.84660399, 30.29496392], [59.82934196, 30.42423701] ])  
-  }
-      
+  useEffect(() => {
+    setBounds([ [order.from.lat, order.from.ing], [order.to.lat, order.to.ing]])
+  
+ 
+  },[order])
+ 
   return (
     <div>
-        {/* <button type='button' onClick={clickHandler}>Button</button> */}
-       { bounds.length === 0 ? <Map center = {center} zoom = {13}/> : <Map bounds={bounds} />}
+       {order.id === 0 ? <Map center = {center} zoom = {13}/> : <Map bounds={bounds} />}
     </div>
   )
 }

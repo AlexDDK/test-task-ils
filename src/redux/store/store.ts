@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { rootReducer } from '../reducers/rootReducer'
 import createSagaMiddleware from 'redux-saga'
-import { FetchOrderListWatcher } from '../sagas/orderListSaga'
+import rootSaga from '../sagas/rootSaga'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -11,7 +11,7 @@ const store = configureStore({
     middleware: [sagaMiddleware]
     
 })
-sagaMiddleware.run(FetchOrderListWatcher)
+sagaMiddleware.run(rootSaga)
 
 export default store;   
 export type RootState = ReturnType<typeof store.getState>
