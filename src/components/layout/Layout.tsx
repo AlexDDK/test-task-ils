@@ -1,4 +1,3 @@
-import React from 'react'
 import MapCont from '../mapCont/MapCont'
 import TableCont from '../tableCont/TableCont'
 import styles from './layout.module.css'

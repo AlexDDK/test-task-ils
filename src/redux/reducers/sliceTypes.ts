@@ -11,8 +11,6 @@ export interface IOrder {
         to: Icoords,
 }
 
-// export type oneOrder = {} | IOrder 
-
 export interface IOrderList {
     orders: IOrder[],
     isLoading: boolean,
