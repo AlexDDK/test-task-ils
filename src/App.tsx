@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Map from './components/map/Map'
 import MapCont from './components/mapCont/MapCont';
+import TableCont from './components/tableCont/TableCont';
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <h1>START</h1>
       <MapCont />
-      {/* <Map /> */}
+      <TableCont />
     </div>
   );
 }

@@ -1,25 +1,13 @@
-import React, { useEffect } from 'react'
 import styles from './map.module.css'
-import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+import SetView from '../setView/SetView'
+import { IMapProps } from './map.props'
 
-function Map(props:any) {
+
+function Map(props: IMapProps) {
 
   let {center, zoom, bounds} = props
 
-  function SetView() {
-
-    const map = useMap()
-
-    bounds && map.fitBounds(bounds, {padding: [50, 50]})
-  
-    return (
-      <></>   
-    )
-  }
-
-  
-
-  
   return (
    <>
     {bounds ? 
@@ -38,10 +26,10 @@ function Map(props:any) {
         <Marker position={bounds[1]}>
           <Popup>
           Чтобы увидеть маршрут, выберите его в таблице
-        </Popup>
+          </Popup>
         </Marker>
 
-        <SetView />
+        <SetView bounds={bounds}/>
       </MapContainer>
       ) : 
       (<MapContainer className={styles.mapContainer} center={center} zoom={zoom} scrollWheelZoom={false} >
@@ -54,8 +42,6 @@ function Map(props:any) {
       )
     }
    </>
- 
-
   )
 }
 

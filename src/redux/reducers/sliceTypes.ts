@@ -1,11 +1,21 @@
+
+interface Icoords {
+    ing: number;
+    lat: number;
+}
+
 export interface IOrder {
-    numOfOrder: number,
-    fromLat: number,
-    fromIng: number,
-    toLat: number,
-    toIng: number,
+    id: number,
+    from: Icoords,
+    to: Icoords,
 }
 
 export type oneOrder = {} | IOrder
 
-export type OrderList = Array<IOrder>
+export interface IOrderList {
+    orders: IOrder[],
+    isLoading: boolean,
+    error: string
+}
+
+

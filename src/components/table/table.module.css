@@ -1,0 +1,16 @@
+.tableContainer {
+    width: 50%
+}
+
+.table {
+    display: grid;
+    grid-template-columns: 12% repeat(4, 22%);
+
+
+}
+
+.gridItem {
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
