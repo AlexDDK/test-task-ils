@@ -21,7 +21,7 @@ export default function MapCont() {
       
   return (
     <div>
-        <button type='button' onClick={clickHandler}>Button</button>
+        {/* <button type='button' onClick={clickHandler}>Button</button> */}
        { bounds.length === 0 ? <Map center = {center} zoom = {13}/> : <Map bounds={bounds} />}
     </div>
   )

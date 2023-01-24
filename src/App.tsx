@@ -1,15 +1,14 @@
 import React from 'react';
 import './App.css';
-import MapCont from './components/mapCont/MapCont';
-import TableCont from './components/tableCont/TableCont';
+import Layout from './components/layout/Layout';
+
 
 
 function App() {
   return (
     <div className="App">
-      <h1>START</h1>
-      <MapCont />
-      <TableCont />
+      <h1>LIST OF ORDERS</h1>
+      <Layout />
     </div>
   );
 }
