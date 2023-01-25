@@ -5,11 +5,9 @@ function SetView(props: ISetView) {
 
   const {bounds} = props
   const map = useMap()
-  map.fitBounds(bounds, {padding: [50, 50]})
-    
-  return (
-    <></>
-  )
+  map.fitBounds(bounds)
+
+  return null
 }
 
 export default SetView

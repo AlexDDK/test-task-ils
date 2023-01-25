@@ -1,5 +1,5 @@
-import MapCont from '../mapCont/MapCont'
-import TableCont from '../tableCont/TableCont'
+import MapCont from '../../controllers/mapCont/MapCont'
+import TableCont from '../../controllers/tableCont/TableCont'
 import styles from './layout.module.css'
 
 export default function Layout() {

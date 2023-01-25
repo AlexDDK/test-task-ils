@@ -1,4 +1,4 @@
-import { listFromDataBase } from "../../listFromDB"
+import { listFromDataBase } from "../../server/listFromDB"
 
 export const fetchToDataBase = () => {
     

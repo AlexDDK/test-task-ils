@@ -1,7 +1,7 @@
 import { LatLngBoundsExpression, LatLngExpression } from 'leaflet'
 import { useEffect, useState } from 'react'
-import { useAppSelector } from '../../redux/hooks/hooks'
-import Map from '../map/Map'
+import { useAppSelector } from '../../../redux/hooks/hooks'
+import Map from '../../UI/map/Map'
 
 export default function MapCont() {
 
@@ -15,8 +15,6 @@ export default function MapCont() {
 
   useEffect(() => {
     setBounds([ [order.from.lat, order.from.ing], [order.to.lat, order.to.ing]])
-  
- 
   },[order])
  
   return (

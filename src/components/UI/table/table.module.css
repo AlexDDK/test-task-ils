@@ -1,20 +1,31 @@
 .tableContainer {
     width: 90%;
     margin: auto;
-    cursor: pointer
+    cursor: default;
 }
 
-.table {
+.tableRow {
     display: grid;
     grid-template-columns: 12% repeat(4, 22%);
+}
 
-
+.cursor {
+    cursor: pointer
 }
 
 .gridItem {
     border: 1px solid rgba(0, 0, 0, 0.8);
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.head {
+    font-weight: bold;
+    background: rgb(203, 203, 203);
+}
+
+.odd {
+    background: rgb(216, 215, 215);
 }
 
 .active {
