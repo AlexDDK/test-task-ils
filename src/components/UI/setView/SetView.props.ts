@@ -1,4 +1,4 @@
-import { LatLngBoundsLiteral, LatLngExpression } from "leaflet";
+import { LatLngBoundsLiteral } from "leaflet";
 
 export interface ISetView {
     bounds: LatLngBoundsLiteral

@@ -23,13 +23,13 @@ function Map(props: IMapProps) {
 
         <Marker position={markers[0]}>
           <Popup>
-          Чтобы увидеть маршрут, выберите его в таблице
+          Точка погрузки
           </Popup>
         </Marker>
 
         <Marker position={markers[1]}>
           <Popup>
-          {String(polylineData)}
+          Точка разгрузки
           </Popup>
         </Marker>
 

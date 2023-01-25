@@ -1,12 +1,13 @@
 import { LatLngBoundsExpression, LatLngExpression, LatLngTuple } from 'leaflet'
 import { useAppSelector } from '../../../redux/hooks/hooks'
+import { currentOrderSelector, currentPolylineSelector } from '../../../redux/selectors/selectors'
 import Map from '../../UI/map/Map'
 import { search } from './mapHelper'
 
 export default function MapCont() {
 
-  const order = useAppSelector((state) => state.currentOrder.current)
-  const polyData = useAppSelector((state) => state.currentOrder.polyline)
+  const order = useAppSelector(currentOrderSelector)
+  const polyData = useAppSelector(currentPolylineSelector)
 
   const initialCenter: LatLngExpression = [59.933005, 30.308888]
   
@@ -22,7 +23,7 @@ export default function MapCont() {
 
   let markers : LatLngBoundsExpression = [];
   if (order.id !== 0) {
-    markers = [ [order.from.lat, order.from.ing], [order.to.lat, order.to.ing]]
+    markers = [ [order.from.lat, order.from.lng], [order.to.lat, order.to.lng]]
   }
 
   let flagMarkers = markers.length !== 0 ? true : false
@@ -30,12 +31,11 @@ export default function MapCont() {
   let flagPolyBounds = (polyBounds[0] && polyBounds[1]) ? true : false
 
   return (
-
     <>
-    { flagMarkers && flagPolylineData && flagPolyBounds ? 
-      <Map markers={markers} polylineData={polylineData} polyBounds={polyBounds}/> :
-      <Map center = {initialCenter} /> 
-    }
+      { flagMarkers && flagPolylineData && flagPolyBounds ? 
+        <Map markers={markers} polylineData={polylineData} polyBounds={polyBounds}/> :
+        <Map center = {initialCenter} /> 
+      }
     </>
   )
 }

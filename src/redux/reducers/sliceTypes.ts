@@ -1,7 +1,7 @@
 import { LatLngExpression } from "leaflet";
 
 interface Icoords {
-    ing: number;
+    lng: number;
     lat: number;
 }
 

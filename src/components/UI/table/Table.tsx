@@ -33,9 +33,9 @@ export default function Table(props: ITableProps) {
               ])} key={el.id} onClick={(e) => clickHandler(el.id)}>
                 <div className={styles.gridItem}>№{i+1}</div>
                 <div className={styles.gridItem}>{el.from.lat}</div>
-                <div className={styles.gridItem}>{el.from.ing}</div>
+                <div className={styles.gridItem}>{el.from.lng}</div>
                 <div className={styles.gridItem}>{el.to.lat}</div>
-                <div className={styles.gridItem}>{el.to.ing}</div>
+                <div className={styles.gridItem}>{el.to.lng}</div>
               </div>               
             )
           })

@@ -14,7 +14,7 @@ function* currentListWorker(args: action): SagaIterator {
 
     try {
         yield delay(100)
-        const dataFromApi = yield call(osrmApi,`${args.payload.from.ing},${args.payload.from.lat};${args.payload.to.ing},${args.payload.to.lat}`)
+        const dataFromApi = yield call(osrmApi,`${args.payload.from.lng},${args.payload.from.lat};${args.payload.to.lng},${args.payload.to.lat}`)
         const jsonFromApi = yield call(() => new Promise(res => res(dataFromApi.json())))
         yield put(setOrder(args.payload)) 
         yield put(setPolyline(jsonFromApi.routes[0].geometry.coordinates.map((el: number[]) => el.reverse())))

@@ -7,11 +7,11 @@ const initialState: IOrderState = {
     id: 0,
     from: {
         lat: 0,
-        ing: 0
+        lng: 0
     },
     to: {
         lat: 0,
-        ing: 0
+        lng: 0
     },
 
    },
