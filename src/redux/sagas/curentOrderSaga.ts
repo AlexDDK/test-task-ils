@@ -1,6 +1,7 @@
 import { SagaIterator } from "redux-saga";
-import { put, takeLatest } from "redux-saga/effects";
-import { orderError, setOrder } from "../reducers/currentOrderSlice";
+import { call, delay, put, takeLatest } from "redux-saga/effects";
+import { osrmApi } from "../../HTTPS/osrmApi";
+import { orderError, setOrder, setPolyline } from "../reducers/currentOrderSlice";
 import { IOrder } from "../reducers/sliceTypes";
 
 type action = {
@@ -12,7 +13,11 @@ type action = {
 function* currentListWorker(args: action): SagaIterator {
 
     try {
-        yield put(setOrder(args.payload))
+        yield delay(100)
+        const dataFromApi = yield call(osrmApi,`${args.payload.from.ing},${args.payload.from.lat};${args.payload.to.ing},${args.payload.to.lat}`)
+        const jsonFromApi = yield call(() => new Promise(res => res(dataFromApi.json())))
+        yield put(setOrder(args.payload)) 
+        yield put(setPolyline(jsonFromApi.routes[0].geometry.coordinates.map((el: number[]) => el.reverse())))
 
     } catch (error: any) {
         yield put(orderError(error.message))

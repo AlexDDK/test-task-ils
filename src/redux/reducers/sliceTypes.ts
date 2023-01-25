@@ -1,3 +1,4 @@
+import { LatLngExpression } from "leaflet";
 
 interface Icoords {
     ing: number;
@@ -20,7 +21,9 @@ export interface IOrderList {
 export interface IOrderState {
     current: IOrder,
     isLoading: boolean,
+    polyline: LatLngExpression[],
     error: string
 }
+
 
 

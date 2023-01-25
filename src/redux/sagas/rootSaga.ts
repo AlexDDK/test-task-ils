@@ -5,6 +5,6 @@ import { orderListWatcher } from "./orderListSaga";
 export default function* rootSaga() {
     yield all([
         orderListWatcher(),
-        currentOrderWatcher()
+        currentOrderWatcher(),
     ])
   }

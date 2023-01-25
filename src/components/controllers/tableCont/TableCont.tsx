@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect} from 'react'
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks'
 import { chooseOrder } from '../../../redux/reducers/currentOrderSlice'
 import { fetchingList } from '../../../redux/reducers/orderListSlice'
@@ -19,8 +19,6 @@ export default function TableCont() {
       const order = orderList.orders.find((el) => el.id === id)  
       order && dispatch(chooseOrder(order))
     }
-
-
 
     return (
       <Table orderList={orderList} clickHandler={clickHandler} id={choosenOrder.id}/>

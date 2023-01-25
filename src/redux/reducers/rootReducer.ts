@@ -5,6 +5,6 @@ import orderListSlice from './orderListSlice'
 
 export const rootReducer = combineReducers({
     orderList: orderListSlice,
-    currentOrder: currentOrderSlice
+    currentOrder: currentOrderSlice,
 })
 

@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { LatLngExpression } from "leaflet";
 import { IOrder, IOrderState } from "./sliceTypes";
 
 const initialState: IOrderState = {
@@ -14,6 +15,7 @@ const initialState: IOrderState = {
     },
 
    },
+   polyline: [],
    isLoading: false,
    error: ''
 }
@@ -30,6 +32,11 @@ const currentOrderSlice = createSlice({
             state.error = ''            
             state.current = action.payload
         },
+        setPolyline(state, action: PayloadAction<LatLngExpression[]>) {
+            state.isLoading = false           
+            state.error = ''            
+            state.polyline = action.payload
+        },
         orderError(state, action: PayloadAction<string>){
             state.isLoading = false
             state.error = action.payload
@@ -38,4 +45,4 @@ const currentOrderSlice = createSlice({
 })
 
 export default currentOrderSlice.reducer
-export const {chooseOrder, setOrder, orderError} = currentOrderSlice.actions
+export const {chooseOrder, setOrder, setPolyline, orderError} = currentOrderSlice.actions
