@@ -1,11 +1,29 @@
-import { LatLngBoundsLiteral,} from "leaflet"
+import { LatLngBoundsLiteral} from "leaflet"
 
-export const search = (arr: any): LatLngBoundsLiteral => {
-    const obj = Object.fromEntries(arr)
-    const first = Array.from(Object.keys(obj)).map(el => +el)
-    const second = Array.from(Object.values(obj))
-    first.sort((a,b) => b - a )
-    second.sort((a,b) => b - a )
+export const findExtremes = (arr: any): LatLngBoundsLiteral => {
 
-    return [[first[0], second[second.length -1 ]], [first[first.length -1] ,second[0]]]   
+    if ( !arr.length || !Array.isArray(arr) ) return []
+
+    let minFirst = Infinity
+    let minSecond = Infinity 
+    let maxFirst = -Infinity
+    let maxSecond = -Infinity;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i][0] > maxFirst) {
+            maxFirst = arr[i][0];
+        }
+        if (arr[i][0] < minFirst) {
+            minFirst = arr[i][0];
+        }
+        if (arr[i][1] > maxSecond) {
+            maxSecond = arr[i][1];
+        }
+        if (arr[i][1] < minSecond) {
+            minSecond = arr[i][1];
+        }
+    }
+    return [[maxFirst, maxSecond], [minFirst, minSecond]];  
 }
+
+module.exports = findExtremes

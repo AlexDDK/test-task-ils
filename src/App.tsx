@@ -2,7 +2,6 @@ import './App.css';
 import Layout from './components/UI/layout/Layout';
 
 
-
 function App() {
 
   return (

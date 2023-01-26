@@ -5,7 +5,7 @@ import styles from './layout.module.css'
 export default function Layout() {
 
   return (
-    <div className={styles.mainContainer}>
+    <div data-testid="layout" className={styles.mainContainer}>
         <TableCont />
         <MapCont />
     </div>

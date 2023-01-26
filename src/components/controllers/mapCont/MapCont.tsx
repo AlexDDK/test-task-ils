@@ -2,7 +2,7 @@ import { LatLngBoundsExpression, LatLngExpression, LatLngTuple } from 'leaflet'
 import { useAppSelector } from '../../../redux/hooks/hooks'
 import { currentOrderSelector, currentPolylineSelector } from '../../../redux/selectors/selectors'
 import Map from '../../UI/map/Map'
-import { search } from './mapHelper'
+import { findExtremes } from './mapHelper'
 
 export default function MapCont() {
 
@@ -18,7 +18,7 @@ export default function MapCont() {
 
   let polyBounds : LatLngTuple[]= [];
   if (polyData.length !== 0) {
-    polyBounds = search(polyData)
+    polyBounds = findExtremes(polyData)
   }
 
   let markers : LatLngBoundsExpression = [];
