@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/test-task-ils/static/css/main.42dceff3.css",
+    "main.js": "/test-task-ils/static/js/main.0153588f.js",
+    "index.html": "/test-task-ils/index.html",
+    "main.42dceff3.css.map": "/test-task-ils/static/css/main.42dceff3.css.map",
+    "main.0153588f.js.map": "/test-task-ils/static/js/main.0153588f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.42dceff3.css",
+    "static/js/main.0153588f.js"
+  ]
+}
