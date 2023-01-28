@@ -8,3 +8,16 @@
     grid-template-columns: 40% 60%;
 }
 
+@media (max-width : 900px) {
+    .mainContainer {
+        font-size: 14px;
+    }
+}
+
+@media (max-width : 600px) {
+    .mainContainer {
+        grid-template-columns: auto;
+        grid-template-rows: auto 2fr;
+        font-size: 12px;
+    }
+}

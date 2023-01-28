@@ -15,6 +15,7 @@ function* orderListWorker(): SagaIterator {
     }
     catch(error: any) {
         yield put(fetchingListError(error.message))
+        alert(`Sorry! An error occurred: ${error.message}`)
 
     }
 

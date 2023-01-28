@@ -1,36 +1,13 @@
 import { render, screen } from '@testing-library/react';
-import App from '../App';
-
+import App from '../../App';
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
+import { initialState } from '../testHelper';
 
 
 
 describe('App', () => {
   
-  const initialState = {
-    orderList: {
-      orders: [],
-      isLoading: false,
-      error: ''
-    },
-    currentOrder: {
-      current: {
-      id: 0,
-      from: {
-          lat: 0,
-          lng: 0
-      },
-      to: {
-          lat: 0,
-          lng: 0
-      },
-  
-     },
-     polyline: [],
-     isLoading: false,
-     error: ''}
-  }
   const mockStore = configureStore()
   let store
 

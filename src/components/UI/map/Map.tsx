@@ -1,5 +1,5 @@
 import styles from './map.module.css'
-import { MapContainer, Marker, Polyline, Popup, TileLayer } from 'react-leaflet'
+import { MapContainer, Marker, Polyline, Popup, TileLayer, Tooltip } from 'react-leaflet'
 import SetView from '../setView/SetView'
 import { IMapProps } from './map.props'
 
@@ -13,23 +13,29 @@ function Map(props: IMapProps) {
   
 
   return (
-   <>
+   <div data-testid="map">
     {markers && polylineData && polyBounds ? 
-      (<MapContainer className={styles.mapContainer} scrollWheelZoom={false} >
+      (<MapContainer className={styles.mapContainer} scrollWheelZoom={false} data-testid="mapContainer1">
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
         <Marker position={markers[0]}>
+        <Tooltip direction="top" offset={[-15, -13]} opacity={0.9} permanent>
+          Start
+        </Tooltip>
           <Popup>
-          Точка погрузки
+          Точка погрузки. Координаты: {markers[0][0]}, {markers[0][1]}
           </Popup>
         </Marker>
 
         <Marker position={markers[1]}>
+          <Tooltip direction="top" offset={[-15, -13]} opacity={0.9} permanent>
+            Finish
+          </Tooltip>
           <Popup>
-          Точка разгрузки
+          Точка разгрузки. Координаты: {markers[1][0]}, {markers[1][1]}
           </Popup>
         </Marker>
 
@@ -40,7 +46,7 @@ function Map(props: IMapProps) {
       </MapContainer>
       
       ) : 
-      (<MapContainer className={styles.mapContainer} center={center} zoom={13} scrollWheelZoom={false} >
+      (<MapContainer data-testid="mapContainer2" className={styles.mapContainer} center={center} zoom={13} scrollWheelZoom={false} >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -48,7 +54,7 @@ function Map(props: IMapProps) {
        </MapContainer>
       )
     }
-   </>
+   </div>
   )
 }
 

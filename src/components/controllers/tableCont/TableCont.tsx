@@ -24,3 +24,11 @@ export default function TableCont() {
       <Table orderList={orderList} clickHandler={clickHandler} id={choosenOrder.id}/>
     )
 }
+
+
+// что проверить?
+
+// 2) что dispatch(fetchingList()) вызывается на этапе монтирования
+// 3) что dispatch(fetchingList()) вызывается всего 1 раз при первом монтировании
+// 4) что при нажатии на строку - отправляется диспатч hooseOrder(order)
+// 5) (сделано) Что рендерит табличку 

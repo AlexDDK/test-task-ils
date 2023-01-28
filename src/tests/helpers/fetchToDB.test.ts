@@ -1,7 +1,8 @@
-import { fetchToDataBase } from '../HTTPS/fetchToDB';
-import { listFromDataBase } from '../server/listFromDB';
+import { fetchToDataBase } from '../../HTTPS/fetchToDB';
+import { listFromDataBase } from '../../server/listFromDB';
 
 describe('fetchToDataBase', () => {
+
   it('returns a stringified version of listFromDataBase', async () => {
     const result = await fetchToDataBase();
     expect(result).toEqual(JSON.stringify(listFromDataBase));
@@ -14,4 +15,5 @@ describe('fetchToDataBase', () => {
     await expect(result).resolves.toEqual(JSON.stringify(listFromDataBase));
     jest.useRealTimers();
   });
+  
 });

@@ -26,4 +26,3 @@ export const findExtremes = (arr: any): LatLngBoundsLiteral => {
     return [[maxFirst, maxSecond], [minFirst, minSecond]];  
 }
 
-module.exports = findExtremes

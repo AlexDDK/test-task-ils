@@ -17,13 +17,13 @@ export default function Table(props: ITableProps) {
       </div>
     ) : (
       <>
-        <div className={styles.tableContainer}>
+        <div className={styles.tableContainer} data-testid="tableContainer">
           <div className={styles.tableRow}>
             <div className={cn(styles.gridItem, styles.head)}>Номер заявки</div>
             <div className={cn(styles.gridItem, styles.head)}>Координаты от lat</div>
-            <div className={cn(styles.gridItem, styles.head)}>Координаты от ing</div>
+            <div className={cn(styles.gridItem, styles.head)}>Координаты от lng</div>
             <div className={cn(styles.gridItem, styles.head)}>Координаты до lat</div>
-            <div className={cn(styles.gridItem, styles.head)}>Координаты до ing</div>
+            <div className={cn(styles.gridItem, styles.head)}>Координаты до lng</div>
           </div>
           {orderList.orders.map((el, i) => {
             return (

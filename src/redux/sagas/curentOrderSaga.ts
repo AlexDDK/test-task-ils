@@ -21,6 +21,7 @@ function* currentListWorker(args: action): SagaIterator {
 
     } catch (error: any) {
         yield put(orderError(error.message))
+        alert(`Sorry! An error occurred: ${error.message}`)
         
     }
 
